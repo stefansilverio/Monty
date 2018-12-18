@@ -36,5 +36,6 @@ typedef struct instruction_s
 } instruction_t;
 
 stack_t *add_node_start(stack_t **h, int n);
+void pall(const stack_t *);
 
 #endif
