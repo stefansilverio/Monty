@@ -1,16 +1,16 @@
 #include "monty.h"
 
 /**
- * insert_dnodeint_at_index - insert node at index
+ * add_node_start - insert node at start
  * @h: ptr to head of linked list
  * @n: data to place in node
  * Return: address of new_node
  */
 stack_t *add_node_start(stack_t **h, int n)
 {
-	dlistint_t *new = NULL, *tmp = NULL;
+	stack_t *new = NULL, *tmp = NULL;
 
-	new = malloc(sizeof(dlistint_t));
+	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 		return (NULL);
 
