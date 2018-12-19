@@ -123,3 +123,34 @@ void _mul(stack_t **stack, unsigned line_number)
 /* call pop */
 	curr->n = store;
 }
+
+
+/**
+ * pop - remove the top ele of a stack
+ * @stack: pointer to top of a stack
+ * @n: line number
+ */
+void pop(stack **stack, unsigned int n)
+{
+	stack_t *node;
+
+	if (!stack || !(*stack))
+	{
+		fprintf("L%u: can't pop an empty stack\n");
+		exit(EXIT_FAILURE)
+	}
+
+	node = *stack;
+
+	if ((*stack)->next)
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+	}
+	else
+		*stack = NULL;
+
+	free(node);
+}
+
+
