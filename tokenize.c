@@ -14,11 +14,12 @@ char **tokenize(char *buffer)
 
 	token = strtok(buffer, "  \r\n");
 
-/* TODO: error if there are no tokens */
-
 	store = malloc(sizeof(char **) * 3);
-
-/* TODO: free memory */
+	if (store == NULL)
+	{
+		fprintf("Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
 
 	while (token)
 	{
@@ -28,8 +29,6 @@ char **tokenize(char *buffer)
 	}
 
 	store[2] = '\0';
-
-/* TODO: put null byte at end of array */
 
 	return (store);
 }
