@@ -7,7 +7,7 @@
  */
 void _pint(stack_t **stack, unsigned int n)
 {
-	if (!stack)
+	if (!stack || !(*stack))
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", n);
 		exit(EXIT_FAILURE);
@@ -58,7 +58,7 @@ void _pstr(stack_t **stack, unsigned int n)
 	node = *stack;
 	while (node)
 	{
-		if ((node)->n <= 0 || (node)->n > 127)
+		if (node->n <= 0 || node->n > 127)
 			break;
 		putchar(node->n);
 		node = node->next;
