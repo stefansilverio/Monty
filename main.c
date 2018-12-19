@@ -5,7 +5,8 @@
  */
 int main(int argc, char *argv[])
 {
-	stack_t *result = NULL, *head = NULL;
+	char **result = NULL;
+	stack_t *head = NULL;
 	char *buffer = NULL;
 	FILE *fp;
 	size_t count = 0, n;
@@ -21,12 +22,12 @@ int main(int argc, char *argv[])
 	fp = fopen(const char *path, const char r+);
 /* fopen returns null on failure */
 
-	count = getline(&buffer, &n, fp);
 /* check count to filter out failures */
-	while (count != -1)
+	while (getline(&buffer, &n, fp) != 0)
 	{
-		count = getline(&buffer, &n, fp);
-		result = tokenize(result, &buffer); /* result is at top of list */
+		count++;
+		result = tokenize(buffer); /* result is at top of list */
+		call(result, head);
 	}
 
 	while (result->next)

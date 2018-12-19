@@ -3,6 +3,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+
+extern int line_number;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,6 +39,7 @@ typedef struct instruction_s
 } instruction_t;
 
 stack_t *add_node_start(stack_t **h, int n);
+int call(char **tokens, stack_t *stack);
 void push(stack_t **, unsigned int n);
 void pall(stack_t **, unsigned int n);
 
