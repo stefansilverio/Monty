@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * tokenize - tokenize a given buffer
+ * @buffer: string to tokenize
+ *
+ * Return: an array
+ */
 char **tokenize(char *buffer)
 {
 	char *token = NULL; /* ptr to next token */
@@ -10,7 +16,7 @@ char **tokenize(char *buffer)
 
 /* TODO: error if there are no tokens */
 
-	store = malloc(sizeof(char**) * 3);
+	store = malloc(sizeof(char **) * 3);
 
 /* TODO: free memory */
 

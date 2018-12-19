@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * pint - prints the top for the stack
+ * _pint - prints the top for the stack
  * @stack: pointered to a stack
  * @n: line number that opcode is call at.
  */
@@ -17,7 +17,7 @@ void _pint(stack_t **stack, unsigned int n)
 }
 
 /**
- * pchar - prints out a char
+ * _pchar - prints out a char
  * @stack: pointered to a stack
  * @n: line number that opcode is call at.
  */
@@ -40,7 +40,7 @@ void _pchar(stack_t **stack, unsigned int n)
 
 
 /**
- * pstr - prints a string
+ * _pstr - prints a string
  * @stack: pointered to a stack
  * @n: line number that opcode is call at.
  */
@@ -68,15 +68,15 @@ void _pstr(stack_t **stack, unsigned int n)
 }
 
 /**
- * rotl -The top element of the stack becomes the last one, and the second top
+ * _rotl -The top element of the stack becomes the last one, and the second top
  * element of the stack becomes the first one
  *
- * @stack - pointer to a stack
- * @n - line number
+ * @stack: pointer to a stack
+ * @n: line number
  */
 void _rotl(stack_t **stack, unsigned int n)
 {
-	stack_t *head , *tail;
+	stack_t *head, *tail;
 	(void) n;
 
 	if (!stack || *stack)
