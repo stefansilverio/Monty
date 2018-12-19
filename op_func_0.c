@@ -53,7 +53,7 @@ void pall(stack_t **stack, unsigned int n)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void swap(stack_t **stack, unsigned line_number)
+void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 	int store = 0;
@@ -70,16 +70,14 @@ void swap(stack_t **stack, unsigned line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void add(stack_t **stack, unsigned line_number)
+void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
-	int store = 0;
 
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
-	store = (curr->next->n) + (curr->n);
-/* call pop */
-	curr->n = store;
+	curr->next->n = (curr->next->n) + (curr->n);
+	pop(stack, line_number);
 }
 
 /**
@@ -87,16 +85,14 @@ void add(stack_t **stack, unsigned line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void sub(stack_t **stack, unsigned line_number)
+void sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
-	int store = 0;
 
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
-	store = (curr->next->n) - (curr->n);
-/* call pop */
-	curr->n = store;
+	curr->next->n = (curr->next->n) - (curr->n);
+	pop(stack, line_number);
 }
 
 /**
@@ -104,18 +100,16 @@ void sub(stack_t **stack, unsigned line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void div(stack_t **stack, unsigned line_number)
+void div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
-	int store = 0;
 
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
 	if (curr->n == 0)
 		exit(EXIT_FAILURE);
-	store = (curr->next->n) / (curr->n);
-/* call pop */
-	curr->n = store;
+	curr->next->n = (curr->next->n) / (curr->n);
+	pop(stack, line_number);
 }
 
 /**
@@ -123,21 +117,27 @@ void div(stack_t **stack, unsigned line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void mul(stack_t **stack, unsigned line_number)
+void mod(stack_t **stack, unsigned int line_number)
 {
-	stack_t *curr = *stack, *tmp = NULL;
-	int store = 0;
+	stack_t *curr = *stack;
 
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
 	if (curr->n == 0)
 		exit(EXIT_FAILURE);
-	tmp = curr->next;
-	store = (curr->next->n) % (curr->n);
+	curr->next->n = (curr->next->n) % (curr->n);
 	pop(stack, line_number);
-	tmp->n = store;
 }
 
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *curr = *stack;
+
+	if (curr->next == NULL)
+		exit(EXIT_FAILURE);
+	curr->next->n = (curr->next->n) * (curr->n);
+	pop(stack, line_number);
+}
 
 /**
  * pop - remove the top ele of a stack
