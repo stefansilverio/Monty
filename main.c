@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int line_number = 0;
+unsigned int line_number = 0;
 
 /**
  *

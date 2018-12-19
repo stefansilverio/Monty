@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-extern int line_number;
+extern unsigned int line_number;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
