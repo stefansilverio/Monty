@@ -55,16 +55,21 @@ void _pall(stack_t **stack, unsigned int n)
  */
 void _swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *curr = *stack;
 	int store = 0;
+
+	if ((stack == NULL) || (*stack == NULL))
+	{
+		fprintf(stderr, "L %u: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	(void) line_number;
 
-	if (curr->next == NULL)
+	if ((*stack)->next == NULL)
 		exit(EXIT_FAILURE);
-	store = curr->next->n;
-	curr->next->n = curr->n;
-	curr->n = store;
+	store = (*stack)->next->n;
+	(*stack)->next->n = (*stack)->n;
+	(*stack)->n = store;
 }
 
 /**

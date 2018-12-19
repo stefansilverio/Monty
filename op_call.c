@@ -22,7 +22,7 @@ void call(char **tokens, stack_t **stack)
 		{"sub", _sub},
 		{NULL, NULL}
 	};
-	
+
 	while (ops[idx].opcode)
 	{
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
