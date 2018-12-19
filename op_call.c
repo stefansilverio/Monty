@@ -3,11 +3,12 @@
 /**
  * push - pushes a node to a stack
  * @stack: head of the stack
- * @n: data to place into the node
+ * @n: line number
  */
 void push(stack_t **stack, unsigned int n)
 {
 	stack_t *node = NULL;
+	(void) n;
 
 	node = malloc(sizeof(stack_t));
 	if (!node)
@@ -16,7 +17,6 @@ void push(stack_t **stack, unsigned int n)
 		exit(EXIT_FAILURE);
 	}
 
-	node->n = n;
 	node->prev = node->next = NULL;
 
 	if (!(*stack))
@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int n)
 /**
  * pall - prints a stack
  * @stack: pointer to a stack_t
- * @n: unsued var
+ * @n: line number
  */
 void pall(stack_t **stack, unsigned int n)
 {
