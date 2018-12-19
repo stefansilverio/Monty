@@ -13,7 +13,7 @@ void _pint(stack_t **stack, unsigned int n)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*stack)->n);
+	fprintf(stdout, "%d\n", (*stack)->n);
 }
 
 /**
@@ -35,7 +35,7 @@ void _pchar(stack_t **stack, unsigned int n)
 		exit(EXIT_FAILURE);
 	}
 
-	putchar((*stack)->n);
+	fprintf(stdout, "%c", (*stack)->n);
 }
 
 
@@ -51,7 +51,7 @@ void _pstr(stack_t **stack, unsigned int n)
 
 	if (!stack)
 	{
-		putchar('\n');
+		fprintf(stdout, "\n");
 		return;
 	}
 
@@ -60,11 +60,11 @@ void _pstr(stack_t **stack, unsigned int n)
 	{
 		if (node->n <= 0 || node->n > 127)
 			break;
-		putchar(node->n);
+		fprintf(stdout, "%c", node->n);
 		node = node->next;
 	}
 
-	putchar('\n');
+	fprintf(stdout, "\n");
 }
 
 /**
