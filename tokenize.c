@@ -6,7 +6,7 @@ char **tokenize(char *buffer)
 	char **store; /* store tokens in array */
 	int idx = 0;
 
-	token = strtok(buffer, " ");
+	token = strtok(buffer, "  \r\n");
 
 /* TODO: error if there are no tokens */
 
@@ -17,8 +17,7 @@ char **tokenize(char *buffer)
 	while (token)
 	{
 		store[idx] = token;
-		printf("%s\n", store[idx]);
-		token = strtok(NULL, " "); /* pt to next token */
+		token = strtok(NULL, " \r\n"); /* pt to next token */
 		idx++;
 	}
 

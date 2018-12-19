@@ -11,10 +11,9 @@ int main(int argc, char *argv[])
 	stack_t *head = NULL; /* pointer to top of stack */
 	char *buffer = NULL; /* store getline */
 	FILE *fp;
-	size_t count = 0, n;
+	size_t n;
 
 	(void) argc;
-	(void) argv;
 
 	fp = fopen(argv[1], "r+");
 	if (fp == NULL)
@@ -22,9 +21,9 @@ int main(int argc, char *argv[])
 /* fopen returns null on failure */
 
 /* check count to filter out failures */
-	while (getline(&buffer, &n, fp) != -1)
+	while ((getline(&buffer, &n, fp)) != -1)
 	{
-		count++;
+		line_number++;
 		tokens = tokenize(buffer); /* result is at top of list */
 		call(tokens, &head);
 	}
