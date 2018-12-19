@@ -10,7 +10,7 @@ void pint(stack_t **stack, unsigned int n)
 	if (!stack)
 	{
 		fprintf("L%u: can't pint, stack empty\n", n);
-		exit(EXIT_FAILURE)
+		exit(EXIT_FAILURE);
 	}
 
 	printf("%d\n", (*stack)->n);
@@ -26,16 +26,16 @@ void pchar(stack_t **stack, unsigned int n)
 	if (!stack)
 	{
 		fprintf("L%u: can't pchar, stack empty\n", n);
-		exit(EXIT_FAILURE)
+		exit(EXIT_FAILURE);
 	}
 
 	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf("L%u: can't pchar, value out of range\n", n);
-		exit(EXIT_FAILURE)
+		exit(EXIT_FAILURE);
 	}
 
-	putchar((*stack)->n)
+	putchar((*stack)->n);
 }
 
 
@@ -50,7 +50,7 @@ void pstr(stack_t **stack, unsigned int n)
 
 	if (!stack)
 	{
-		putchar("\n");
+		putchar('\n');
 		return;
 	}
 
@@ -63,7 +63,33 @@ void pstr(stack_t **stack, unsigned int n)
 		node = node->next;
 	}
 
-	putchar(('\n')
+	putchar('\n');
+}
+
+/**
+ * rotl -The top element of the stack becomes the last one, and the second top
+ * element of the stack becomes the first one
+ *
+ * @stack - pointer to a stack
+ * @n - line number
+ */
+void rotl(stack_t **stack, unsigned int n)
+{
+	stack_t *head , *tail;
+
+	if (!stack || *stack)
+		return;
+	head = *stack;
+	
+	*stack = (*stack)->next;
+	head->next = (*stack)->prev = NULL;
+
+	tail = *stack;
+
+	while (tail->next)
+		tail = tail->next;
+	tail->next = head;
+	head->prev = tail;
 }
 
 
