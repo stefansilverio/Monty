@@ -5,7 +5,7 @@
  * @stack: pointered to a stack
  * @n: line number that opcode is call at.
  */
-void pint(stack_t **stack, unsigned int n)
+void _pint(stack_t **stack, unsigned int n)
 {
 	if (!stack)
 	{
@@ -21,7 +21,7 @@ void pint(stack_t **stack, unsigned int n)
  * @stack: pointered to a stack
  * @n: line number that opcode is call at.
  */
-void pchar(stack_t **stack, unsigned int n)
+void _pchar(stack_t **stack, unsigned int n)
 {
 	if (!stack)
 	{
@@ -44,7 +44,7 @@ void pchar(stack_t **stack, unsigned int n)
  * @stack: pointered to a stack
  * @n: line number that opcode is call at.
  */
-void pstr(stack_t **stack, unsigned int n)
+void _pstr(stack_t **stack, unsigned int n)
 {
 	stack_t *node;
 
@@ -73,7 +73,7 @@ void pstr(stack_t **stack, unsigned int n)
  * @stack - pointer to a stack
  * @n - line number
  */
-void rotl(stack_t **stack, unsigned int n)
+void _rotl(stack_t **stack, unsigned int n)
 {
 	stack_t *head , *tail;
 
