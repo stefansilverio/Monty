@@ -5,7 +5,7 @@
  * @stack: head of the stack
  * @n: line number
  */
-void push(stack_t **stack, unsigned int n)
+void _push(stack_t **stack, unsigned int n)
 {
 	stack_t *node = NULL;
 	(void) n;
@@ -34,7 +34,7 @@ void push(stack_t **stack, unsigned int n)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void pall(stack_t **stack, unsigned int n)
+void _pall(stack_t **stack, unsigned int n)
 {
 	(void) n;
 
@@ -53,7 +53,7 @@ void pall(stack_t **stack, unsigned int n)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void swap(stack_t **stack, unsigned int line_number)
+void _swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 	int store = 0;
@@ -70,7 +70,7 @@ void swap(stack_t **stack, unsigned int line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void add(stack_t **stack, unsigned int line_number)
+void _add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 
@@ -85,7 +85,7 @@ void add(stack_t **stack, unsigned int line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void sub(stack_t **stack, unsigned int line_number)
+void _sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 
@@ -100,7 +100,7 @@ void sub(stack_t **stack, unsigned int line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 
@@ -117,7 +117,7 @@ void div(stack_t **stack, unsigned int line_number)
  * @stack: pointer to a stack_t
  * @n: line number
  */
-void mod(stack_t **stack, unsigned int line_number)
+void _mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 
@@ -129,7 +129,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 }
 
-void mul(stack_t **stack, unsigned int line_number)
+void _mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 
@@ -144,7 +144,7 @@ void mul(stack_t **stack, unsigned int line_number)
  * @stack: pointer to top of a stack
  * @n: line number
  */
-void pop(stack **stack, unsigned int n)
+void _pop(stack **stack, unsigned int n)
 {
 	stack_t *node;
 

@@ -10,17 +10,16 @@ void call(char **tokens, stack_t **stack)
 {
 	int idx = 0;
 	instruction_t ops[] = {
-		{"push", pall},
-		{"pall", push},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"mul", mul},
-		{"pop", pop},
-		{"div", div},
-		{"sub", sub},
+		{"push", _pall},
+		{"pall", _push},
+		{"pint", _pint},
+		{"pop", _pop},
+		{"swap", _swap},
+		{"add", _add},
+		{"nop", _nop},
+		{"mul", _mul},
+		{"div", _div},
+		{"sub", _sub},
 		{NULL, NULL}
 	};
 
