@@ -36,15 +36,17 @@ void _push(stack_t **stack, unsigned int n)
  */
 void _pall(stack_t **stack, unsigned int n)
 {
+	stack_t *node, *head;
 	(void) n;
 
 	if (!stack || !(*stack))
 		return;
+	node = head = *stack;
 
-	while (*stack)
+	while (node)
 	{
-		printf("%d\n", (*stack)->n);
-		(*stack) = (*stack)->next;
+		printf("%d\n", node->n);
+		node = node->next;
 	}
 }
 

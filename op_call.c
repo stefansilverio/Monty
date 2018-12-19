@@ -20,14 +20,19 @@ void call(char **tokens, stack_t **stack)
 		{"mul", _mul},
 		{"div", _div},
 		{"sub", _sub},
+		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{NULL, NULL}
 	};
 
 	while (ops[idx].opcode)
 	{
+		if (tokens[0][0] == '#')
+			return;
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 		{
-			ops[idx].f(stack, line_number);
+			if(ops[idx].f)
+				ops[idx].f(stack, line_number);
 			break;
 		}
 		idx++;
