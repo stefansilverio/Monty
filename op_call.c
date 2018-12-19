@@ -1,14 +1,14 @@
 #include "monty.h"
 
+
 /**
  * call - call appropriate function
  * @t: pointer to array of tokens
  * Return: nothing
  */
-void call(char **tokens, stack_t *stack)
+void call(char **tokens, stack_t **stack)
 {
 	int idx = 0;
-	int line_number = atoi(*t[1]);
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
@@ -24,9 +24,9 @@ void call(char **tokens, stack_t *stack)
 	{
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 			ops.f(&stack, line_number);
+		idx++;
 	}
 
 	if (strcmp(ops[idx].opcode, "push") == 0)
-	{
-
+		(*stack)->n = atoi(*token[1])
 }
