@@ -41,11 +41,19 @@ void call(char **tokens, stack_t **stack)
 		}
 		idx++;
 	}
+	
 
 	if (strcmp(tokens[0], "push") == 0)
 	{
 		is_valid(tokens[1]);
 		(*stack)->n = atoi(tokens[1]);
+	}
+	else if (!(ops[idx].opcode))
+	{
+		fprintf(stderr, "L%u: unknown instruction %s\n", 
+				line_number,
+				tokens[0]);
+		exit(EXIT_FAILURE);
 	}
 }
 
