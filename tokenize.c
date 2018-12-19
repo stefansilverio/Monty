@@ -14,6 +14,9 @@ char **tokenize(char *buffer)
 
 	token = strtok(buffer, "  \r\n");
 
+	if (token == NULL)
+		return (NULL);
+
 	store = malloc(sizeof(char **) * 3);
 	if (store == NULL)
 	{
