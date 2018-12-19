@@ -38,6 +38,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+stack_t *build_list(stack_t **head);
 stack_t *add_node_start(stack_t **h, int n);
 int call(char **tokens, stack_t **stack);
 void push(stack_t **stack, unsigned int n);
