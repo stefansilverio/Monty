@@ -17,7 +17,7 @@ char **tokenize(char *buffer)
 	store = malloc(sizeof(char **) * 3);
 	if (store == NULL)
 	{
-		fprintf("Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
 
