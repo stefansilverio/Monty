@@ -5,7 +5,7 @@
  * @t: pointer to array of tokens
  * Return: nothing
  */
-void call(char **list, stack_t *buffer)
+void call(char **tokens, stack_t *stack)
 {
 	int idx = 0;
 	int line_number = atoi(*t[1]);
@@ -22,7 +22,11 @@ void call(char **list, stack_t *buffer)
 
 	while (ops[idx])
 	{
-		if (strcmp(list[0], ops[idx].opcode) == 0)
-			f(&buffer, line_number);
+		if (strcmp(tokens[0], ops[idx].opcode) == 0)
+			ops.f(&stack, line_number);
 	}
+
+	if (strcmp(ops[idx].opcode, "push") == 0)
+	{
+
 }
