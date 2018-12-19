@@ -6,7 +6,7 @@
  * @t: pointer to array of tokens
  * Return: nothing
  */
-void call(char **tokens, stack_t **stack)
+int call(char **tokens, stack_t **stack)
 {
 	int idx = 0;
 	instruction_t ops[] = {
@@ -16,20 +16,22 @@ void call(char **tokens, stack_t **stack)
 		{"pop", _pop},
 		{"swap", _swap},
 		{"add", _add},
-		{"nop", _nop},
+		{"nop", NULL},
 		{"mul", _mul},
 		{"div", _div},
 		{"sub", _sub},
 		{NULL, NULL}
 	};
 
-	while (ops[idx])
+	while (ops[idx].opcode)
 	{
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
-			ops.f(&stack, line_number);
+			ops[idx].f(stack, line_number);
 		idx++;
 	}
 
 	if (strcmp(ops[idx].opcode, "push") == 0)
-		(*stack)->n = atoi(*token[1])
+		(*stack)->n = atoi(tokens[1]);
+
+	return (0);
 }

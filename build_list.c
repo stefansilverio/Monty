@@ -10,6 +10,7 @@ stack_t *build_list(stack_t **head)
 	result = add_node_start(head, 40);
 	result = add_node_start(head, 50);
 	result = add_node_start(head, 60);
-
+	
+	*head = result;
 	return (result);
 }
