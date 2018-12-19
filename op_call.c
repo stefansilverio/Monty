@@ -1,9 +1,13 @@
 #include "monty.h"
 
 
+void is_valid(char *token);
+
 /**
  * call - call appropriate function
- * @t: pointer to array of tokens
+ * @tokens: pointer to array of tokens
+ * @stack: pointer to a stack
+ *
  * Return: nothing
  */
 void call(char **tokens, stack_t **stack)
@@ -31,13 +35,38 @@ void call(char **tokens, stack_t **stack)
 			return;
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 		{
-			if(ops[idx].f)
+			if (ops[idx].f)
 				ops[idx].f(stack, line_number);
 			break;
 		}
 		idx++;
 	}
+	
 
 	if (strcmp(tokens[0], "push") == 0)
+	{
+		is_valid(tokens[1]);
 		(*stack)->n = atoi(tokens[1]);
+	}
+	else if (!(ops[idx].opcode))
+	{
+		fprintf(stderr, "L%u: unknown instruction %s\n", 
+				line_number,
+				tokens[0]);
+		exit(EXIT_FAILURE);
+	}
+}
+
+/**
+ * is_valid - check if second spot of a token array is valid
+ * @token: tokens value to check
+ */
+void is_valid(char *token)
+{
+	if (!token || ((atoi(token) + '0') != token[0]))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 }

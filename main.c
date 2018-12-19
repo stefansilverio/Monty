@@ -16,20 +16,30 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	size_t n;
 
-	(void) argc;
+	if (argc == 1)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 
 	fp = fopen(argv[1], "r+");
 	if (fp == NULL)
-		puts("fail");
-/* fopen returns null on failure */
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 
-/* check count to filter out failures */
 	while ((getline(&buffer, &n, fp)) != -1)
 	{
 		line_number++;
 		tokens = tokenize(buffer); /* result is at top of list */
-		call(tokens, &head);
+		if (tokens)
+		{
+			call(tokens, &head);
+			free(tokens);
+		}
 	}
+	free(buffer);
 	fclose(fp);
 
 	return (0);
