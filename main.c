@@ -34,9 +34,12 @@ int main(int argc, char *argv[])
 		line_number++;
 		tokens = tokenize(buffer); /* result is at top of list */
 		if (tokens)
+		{
 			call(tokens, &head);
+			free(tokens);
+		}
 	}
-	free(tokens);
+	free(buffer);
 	fclose(fp);
 
 	return (0);
