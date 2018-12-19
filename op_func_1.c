@@ -45,12 +45,25 @@ void pchar(stack_t **stack, unsigned int n)
  * @n: line number that opcode is call at.
  */
 void pstr(stack_t **stack, unsigned int n)
-{	
-	if (!stack)
-		printf("\n");
+{
+	stack_t *node;
 
-	if ((*stack)->n < 0 || (*stack)->n > 127)
+	if (!stack)
 	{
+		putchar("\n");
+		return;
 	}
 
-	putchar((*stack)->n)
+	node = *stack;
+	while (node)
+	{
+		if ((node)->n =< 0 || (node)->n > 127)
+			break;
+		putchar(node->n);
+		node = node->next;
+	}
+
+	putchar(('\n')
+}
+
+
