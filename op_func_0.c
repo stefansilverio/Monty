@@ -58,6 +58,8 @@ void _swap(stack_t **stack, unsigned int line_number)
 	stack_t *curr = *stack;
 	int store = 0;
 
+	(void) line_number;
+
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
 	store = curr->next->n;
@@ -77,7 +79,7 @@ void _add(stack_t **stack, unsigned int line_number)
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
 	curr->next->n = (curr->next->n) + (curr->n);
-	pop(stack, line_number);
+	_pop(stack, line_number);
 }
 
 /**
@@ -92,7 +94,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
 	curr->next->n = (curr->next->n) - (curr->n);
-	pop(stack, line_number);
+	_pop(stack, line_number);
 }
 
 /**
@@ -109,7 +111,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	if (curr->n == 0)
 		exit(EXIT_FAILURE);
 	curr->next->n = (curr->next->n) / (curr->n);
-	pop(stack, line_number);
+	_pop(stack, line_number);
 }
 
 /**
@@ -126,7 +128,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 	if (curr->n == 0)
 		exit(EXIT_FAILURE);
 	curr->next->n = (curr->next->n) % (curr->n);
-	pop(stack, line_number);
+	_pop(stack, line_number);
 }
 
 void _mul(stack_t **stack, unsigned int line_number)
@@ -136,7 +138,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	if (curr->next == NULL)
 		exit(EXIT_FAILURE);
 	curr->next->n = (curr->next->n) * (curr->n);
-	pop(stack, line_number);
+	_pop(stack, line_number);
 }
 
 /**
@@ -144,14 +146,16 @@ void _mul(stack_t **stack, unsigned int line_number)
  * @stack: pointer to top of a stack
  * @n: line number
  */
-void _pop(stack **stack, unsigned int n)
+void _pop(stack_t **stack, unsigned int n)
 {
 	stack_t *node;
 
+	(void) n;
+
 	if (!stack || !(*stack))
 	{
-		fprintf("L%u: can't pop an empty stack\n");
-		exit(EXIT_FAILURE)
+		fprintf(stdout, "Can't pop an empty stack\n");
+		exit(EXIT_FAILURE);
 	}
 
 	node = *stack;
