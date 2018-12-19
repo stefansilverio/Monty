@@ -1,19 +1,28 @@
 #include "monty.h"
 
 /**
- * pall - prints a stack
- * @h: pointer to a stack_t
+ * call - call appropriate function
+ * @t: pointer to array of tokens
+ * Return: nothing
  */
-void pall(const stack_t *h)
+void call(char **list, stack_t *buffer)
 {
-	if (!h)
-		return;
+	int idx = 0;
+	int line_number = atoi(*t[1]);
+	instruction_t ops[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{NULL, NULL}
+	};
 
-	while (h)
+	while (ops[idx])
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		if (strcmp(list[0], ops[idx].opcode) == 0)
+			f(&buffer, line_number);
 	}
 }
-
-
