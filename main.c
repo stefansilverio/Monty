@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int line_number = 0;
+
 /**
  *
  */
