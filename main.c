@@ -3,7 +3,10 @@
 unsigned int line_number = 0;
 
 /**
- *
+ * main - control program flow
+ * @argc: argument count
+ * @argv: argument list
+ * Return: Nothing
  */
 int main(int argc, char *argv[])
 {
