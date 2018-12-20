@@ -20,6 +20,7 @@ static instruction_t ops[] = {
  * call - call appropriate function
  * @tokens: pointer to array of tokens
  * @stack: pointer to a stack
+ * @buffer: TODO
  *
  * Return: nothing
  */
@@ -58,6 +59,7 @@ void call(char **tokens, stack_t **stack, char *buffer)
  * is_valid - check if second spot of a token array is valid
  * @token: tokens value to check
  * @stack: pointer to a stack
+ * @buffer: TODO
  */
 void is_valid(char **token, stack_t **stack, char *buffer)
 {
