@@ -63,7 +63,7 @@ void is_valid(char **token, stack_t **stack)
 {
 	int idx = 0;
 
-	if (token[1] == NULL)
+	if (!token[1])
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		if (*stack)
