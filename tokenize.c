@@ -11,8 +11,9 @@ char **tokenize(char *buffer)
 	char *token = NULL; /* ptr to next token */
 	char **store; /* store tokens in array */
 	int idx = 0;
+	char *delim = "\t  \r\n";
 
-	token = strtok(buffer, "\t  \r\n");
+	token = strtok(buffer, delim);
 
 	if (token == NULL)
 		return (NULL);
@@ -28,7 +29,7 @@ char **tokenize(char *buffer)
 	{
 		if (idx < 3)
 			store[idx] = token;
-		token = strtok(NULL, " \r\n"); /* pt to next token */
+		token = strtok(NULL, delim); /* pt to next token */
 		idx++;
 	}
 
