@@ -1,8 +1,5 @@
 #include "monty.h"
 
-
-void is_valid(char *token);
-
 /**
  * call - call appropriate function
  * @tokens: pointer to array of tokens
@@ -46,7 +43,7 @@ void call(char **tokens, stack_t **stack)
 
 	if (strcmp(tokens[0], "push") == 0)
 	{
-		is_valid(tokens[1]);
+		is_valid(tokens[1], stack);
 		(*stack)->n = atoi(tokens[1]);
 	}
 	else if (!(ops[idx].opcode))
@@ -62,14 +59,35 @@ void call(char **tokens, stack_t **stack)
  * is_valid - check if second spot of a token array is valid
  * @token: tokens value to check
  */
-void is_valid(char *token)
+void is_valid(char *token, stack_t **stack)
 {
-	int num = 0;
+	int idx = 0;
 
-	if (!token || (num == 0 && num != token[0] - '0'))
+	if (token == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		if (*stack)
+		{
+			free_stack(stack);
+		}
 		exit(EXIT_FAILURE);
 	}
 
+	while (token[idx])
+	{
+		if (token[idx] == '-' && idx == 0)
+		{
+			idx++;
+		}
+			if (isdigit(token[idx]) == 0)
+			{
+				fprintf(stderr, "L%u: usage: push integer\n", line_number);
+				if (*stack)
+				{
+					free_stack(stack);
+				}
+				exit(EXIT_FAILURE);
+			}
+			idx++;
+	}
 }
