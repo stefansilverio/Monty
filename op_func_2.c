@@ -4,6 +4,7 @@
  * _div - swaps the data in two nodes
  * @stack: pointer to a stack_t
  * @line_number: line number
+ * Return: Nothing
  */
 void _div(stack_t **stack, unsigned int line_number)
 {
