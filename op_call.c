@@ -68,27 +68,21 @@ void is_valid(char *token, stack_t **stack)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		if (*stack)
-		{
 			free_stack(stack);
-		}
 		exit(EXIT_FAILURE);
 	}
 
 	while (token[idx])
 	{
 		if (token[idx] == '-' && idx == 0)
+			idx++;
+		if (isdigit(token[idx]) == 0)
 		{
-			idx++;
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			if (*stack)
+				free_stack(stack);
+			exit(EXIT_FAILURE);
 		}
-			if (isdigit(token[idx]) == 0)
-			{
-				fprintf(stderr, "L%u: usage: push integer\n", line_number);
-				if (*stack)
-				{
-					free_stack(stack);
-				}
-				exit(EXIT_FAILURE);
-			}
-			idx++;
+		idx++;
 	}
 }
