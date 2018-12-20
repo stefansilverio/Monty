@@ -23,7 +23,7 @@ static instruction_t ops[] = {
  *
  * Return: nothing
  */
-void call(char **tokens, stack_t **stack)
+void call(char **tokens, stack_t **stack, char *buffer)
 {
 	int idx = 0;
 
@@ -42,7 +42,7 @@ void call(char **tokens, stack_t **stack)
 
 	if (strcmp(tokens[0], "push") == 0)
 	{
-		is_valid(tokens, stack);
+		is_valid(tokens, stack, buffer);
 		(*stack)->n = atoi(tokens[1]);
 	}
 	else if (!(ops[idx].opcode))
@@ -59,7 +59,7 @@ void call(char **tokens, stack_t **stack)
  * @token: tokens value to check
  * @stack: pointer to a stack
  */
-void is_valid(char **token, stack_t **stack)
+void is_valid(char **token, stack_t **stack, char *buffer)
 {
 	int idx = 0;
 
@@ -69,6 +69,7 @@ void is_valid(char **token, stack_t **stack)
 		if (*stack)
 			free_stack(stack);
 		free(token);
+		free(buffer);
 		exit(EXIT_FAILURE);
 	}
 
@@ -82,6 +83,7 @@ void is_valid(char **token, stack_t **stack)
 			if (*stack)
 				free_stack(stack);
 			free(token);
+			free(buffer);
 			exit(EXIT_FAILURE);
 		}
 		idx++;
