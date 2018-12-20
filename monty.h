@@ -43,7 +43,7 @@ typedef struct instruction_s
 } instruction_t;
 
 stack_t *build_list(stack_t *head);
-void call(char **tokens, stack_t **stack);
+void call(char **tokens, stack_t **stack, char *);
 char **tokenize(char *buffer);
 stack_t *add_node_start(stack_t *h, int n);
 void _push(stack_t **stack, unsigned int n);
@@ -59,7 +59,7 @@ void _mul(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
-void is_valid(char **token, stack_t **stack);
+void is_valid(char **token, stack_t **stack, char *);
 void free_stack(stack_t **stack);
 
 #endif
