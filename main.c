@@ -2,6 +2,8 @@
 
 unsigned int line_number = 0;
 
+void free_stack(stack_t **stack);
+
 /**
  * main - control program flow
  * @argc: argument count
@@ -40,7 +42,24 @@ int main(int argc, char *argv[])
 		}
 	}
 	free(buffer);
+	free_stack(&head);
 	fclose(fp);
 
 	return (0);
+}
+
+void free_stack(stack_t **stack)
+{
+	stack_t *head = *stack;
+
+	while (head)
+	{
+		if (!head->next)
+		{
+			free(head);
+			break;
+		}
+		head = head->next;
+		free(head->prev);
+	}
 }
