@@ -33,7 +33,7 @@ void call(char **tokens, stack_t **stack)
 	while (ops[idx].opcode)
 	{
 		if (tokens[0][0] == '#')
-			return
+			return;
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 		{
 			if (ops[idx].f)
@@ -64,7 +64,11 @@ void call(char **tokens, stack_t **stack)
  */
 void is_valid(char *token)
 {
-	int num = atoi(token);
+	int num = 0, idx;
+
+	for (idx = 0; token[idx]; idx++)
+	{
+		if (atoi(token[idx]) )
 
 	if (!token || (num == 0 && num != token[0] - '0'))
 	{
