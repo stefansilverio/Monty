@@ -33,7 +33,7 @@ void call(char **tokens, stack_t **stack)
 	while (ops[idx].opcode)
 	{
 		if (tokens[0][0] == '#')
-			break;
+			return
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 		{
 			if (ops[idx].f)

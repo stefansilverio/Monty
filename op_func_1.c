@@ -56,7 +56,7 @@ void _pstr(stack_t **stack, unsigned int n)
 	}
 
 	node = *stack;
-	while (node->next)
+	while (node)
 	{
 		if (node->n <= 0 || node->n > 127)
 			break;
