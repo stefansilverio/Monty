@@ -2,8 +2,6 @@
 
 unsigned int line_number = 0;
 
-void free_stack(stack_t **stack);
-
 /**
  * main - control program flow
  * @argc: argument count
