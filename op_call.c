@@ -23,6 +23,7 @@ void call(char **tokens, stack_t **stack)
 		{"pint", _pint},
 		{"mul", _mul},
 		{"div", _div},
+		{"mod", _mod},
 		{"sub", _sub},
 		{"pchar", _pchar},
 		{"pstr", _pstr},
