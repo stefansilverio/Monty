@@ -62,7 +62,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _pop - remove the top ele of a stack
+ * _pop - remove the top elem of a stack
  * @stack: pointer to top of a stack
  * @n: line number
  */
@@ -74,7 +74,7 @@ void _pop(stack_t **stack, unsigned int n)
 
 	if (!stack || !(*stack))
 	{
-		fprintf(stdout, "Can't pop an empty stack\n");
+		fprintf(stderr, "L%u: can't pop an empty stack\n");
 		exit(EXIT_FAILURE);
 	}
 
