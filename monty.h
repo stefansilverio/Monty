@@ -58,5 +58,6 @@ void _mul(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **stack);
 
 #endif
