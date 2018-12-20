@@ -26,7 +26,8 @@ char **tokenize(char *buffer)
 
 	while (token)
 	{
-		store[idx] = token;
+		if (idx < 4)
+			store[idx] = token;
 		token = strtok(NULL, " \r\n"); /* pt to next token */
 		idx++;
 	}
