@@ -22,6 +22,7 @@ char **tokenize(char *buffer)
 	if (store == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed");
+		free(buffer);
 		exit(EXIT_FAILURE);
 	}
 
