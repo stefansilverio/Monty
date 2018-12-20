@@ -1,16 +1,6 @@
 #include "monty.h"
 
-/**
- * call - call appropriate function
- * @tokens: pointer to array of tokens
- * @stack: pointer to a stack
- *
- * Return: nothing
- */
-void call(char **tokens, stack_t **stack)
-{
-	int idx = 0;
-	instruction_t ops[] = {
+static instruction_t ops[] = {
 		{"push", _push},
 		{"pall", _pall},
 		{"pop", _pop},
@@ -26,6 +16,16 @@ void call(char **tokens, stack_t **stack)
 		{"pstr", _pstr},
 		{NULL, NULL}
 	};
+/**
+ * call - call appropriate function
+ * @tokens: pointer to array of tokens
+ * @stack: pointer to a stack
+ *
+ * Return: nothing
+ */
+void call(char **tokens, stack_t **stack)
+{
+	int idx = 0;
 
 	while (ops[idx].opcode)
 	{
@@ -58,6 +58,7 @@ void call(char **tokens, stack_t **stack)
 /**
  * is_valid - check if second spot of a token array is valid
  * @token: tokens value to check
+ * @stack: pointer to a stack
  */
 void is_valid(char *token, stack_t **stack)
 {
