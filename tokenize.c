@@ -12,7 +12,7 @@ char **tokenize(char *buffer)
 	char **store; /* store tokens in array */
 	int idx = 0;
 
-	token = strtok(buffer, "  \r\n");
+	token = strtok(buffer, "\t  \r\n");
 
 	if (token == NULL)
 		return (NULL);

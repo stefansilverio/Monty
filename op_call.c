@@ -41,7 +41,7 @@ void call(char **tokens, stack_t **stack)
 		}
 		idx++;
 	}
-	
+
 
 	if (strcmp(tokens[0], "push") == 0)
 	{
@@ -50,7 +50,7 @@ void call(char **tokens, stack_t **stack)
 	}
 	else if (!(ops[idx].opcode))
 	{
-		fprintf(stderr, "L%u: unknown instruction %s\n", 
+		fprintf(stderr, "L%u: unknown instruction %s\n",
 				line_number,
 				tokens[0]);
 		exit(EXIT_FAILURE);
@@ -63,7 +63,9 @@ void call(char **tokens, stack_t **stack)
  */
 void is_valid(char *token)
 {
-	if (!token || ((atoi(token) + '0') != token[0]))
+	int num = atoi(token);
+
+	if (!token || (num == 0 && num != token[0] - '0'))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
