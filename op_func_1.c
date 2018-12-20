@@ -70,26 +70,59 @@ void _pstr(stack_t **stack, unsigned int n)
 /**
  * _rotl -The top element of the stack becomes the last one, and the second top
  * element of the stack becomes the first one
- *
  * @stack: pointer to a stack
  * @n: line number
+ * Return: nothing
  */
 void _rotl(stack_t **stack, unsigned int n)
 {
-	stack_t *head, *tail;
+	int store_start = 0, store_end = 0;
 	(void) n;
 
-	if (!stack || *stack)
+	if (!stack || !(*stack))
 		return;
-	head = *stack;
 
-	*stack = (*stack)->next;
-	head->next = (*stack)->prev = NULL;
+	store_start = (*stack)->n; /* store first node data */
 
-	tail = *stack;
+	while ((*stack)->next)
+	{
+		(*stack) = (*stack)->next;
+		if ((*stack)->next == NULL)
+		{
+			store_end = (*stack)->n; /* store second node data */
+			(*stack)->n = store_start;
 
-	while (tail->next)
-		tail = tail->next;
-	tail->next = head;
-	head->prev = tail;
+			while ((*stack)->prev)
+			{
+				(*stack) = (*stack)->prev;
+			}
+
+			(*stack)->n = store_end;
+			return;
+		}
+
+	}
+}
+
+void _rotr(stack_t **stack, unsigned int n)
+{
+	int store_start = 0, store_end = 0;
+
+	(void) n;
+
+	if (!stack || !(*stack))
+		return;
+
+	store_start = (*stack)->n;
+	while ((*stack)->next)
+	{
+		(*stack) = (*stack)->next;
+		if ((*stack)->next == NULL)
+		{
+			store_end = (*stack)->n;
+			(*stack)->n = store_start;
+			return;
+		}
+
+	}
 }
