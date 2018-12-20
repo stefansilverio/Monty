@@ -14,6 +14,8 @@ static instruction_t ops[] = {
 		{"sub", _sub},
 		{"pchar", _pchar},
 		{"pstr", _pstr},
+		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL}
 	};
 /**
