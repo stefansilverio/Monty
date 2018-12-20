@@ -74,7 +74,7 @@ void _pop(stack_t **stack, unsigned int n)
 
 	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n");
+		fprintf(stderr, "L%u: can't pop an empty stack\n", n);
 		exit(EXIT_FAILURE);
 	}
 
