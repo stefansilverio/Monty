@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		tokens = tokenize(buffer); /* result is at top of list */
 		if (tokens)
 		{
-			call(tokens, &head, buffer);
+			call(tokens, &head);
 			free(tokens);
 		}
 	}
