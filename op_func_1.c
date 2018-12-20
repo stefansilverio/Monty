@@ -56,14 +56,13 @@ void _pstr(stack_t **stack, unsigned int n)
 	}
 
 	node = *stack;
-	while (node)
+	while (node->next)
 	{
 		if (node->n <= 0 || node->n > 127)
 			break;
 		fprintf(stdout, "%c", node->n);
 		node = node->next;
 	}
-
 	fprintf(stdout, "\n");
 }
 
