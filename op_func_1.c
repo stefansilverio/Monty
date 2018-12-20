@@ -23,7 +23,7 @@ void _pint(stack_t **stack, unsigned int n)
  */
 void _pchar(stack_t **stack, unsigned int n)
 {
-	if (!stack)
+	if (!stack || !(*stack))
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", n);
 		exit(EXIT_FAILURE);
@@ -35,7 +35,7 @@ void _pchar(stack_t **stack, unsigned int n)
 		exit(EXIT_FAILURE);
 	}
 
-	fprintf(stdout, "%c", (*stack)->n);
+	fprintf(stdout, "%c\n", (*stack)->n);
 }
 
 
@@ -49,7 +49,7 @@ void _pstr(stack_t **stack, unsigned int n)
 	stack_t *node;
 	(void) n;
 
-	if (!stack)
+	if (!stack || !(*stack))
 	{
 		fprintf(stdout, "\n");
 		return;
