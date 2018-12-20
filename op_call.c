@@ -40,10 +40,9 @@ void call(char **tokens, stack_t **stack)
 		idx++;
 	}
 
-
 	if (strcmp(tokens[0], "push") == 0)
 	{
-		is_valid(tokens[1], stack);
+		is_valid(tokens, stack);
 		(*stack)->n = atoi(tokens[1]);
 	}
 	else if (!(ops[idx].opcode))
@@ -60,27 +59,29 @@ void call(char **tokens, stack_t **stack)
  * @token: tokens value to check
  * @stack: pointer to a stack
  */
-void is_valid(char *token, stack_t **stack)
+void is_valid(char **token, stack_t **stack)
 {
 	int idx = 0;
 
-	if (token == NULL)
+	if (token[1] == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		if (*stack)
 			free_stack(stack);
+		free(token);
 		exit(EXIT_FAILURE);
 	}
 
-	while (token[idx])
+	while (token[1][idx])
 	{
-		if (token[idx] == '-' && idx == 0)
+		if (token[1][idx] == '-' && idx == 0)
 			idx++;
-		if (isdigit(token[idx]) == 0)
+		if (isdigit(token[1][idx]) == 0)
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			if (*stack)
 				free_stack(stack);
+			free(token);
 			exit(EXIT_FAILURE);
 		}
 		idx++;
