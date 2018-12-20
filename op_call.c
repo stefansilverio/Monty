@@ -64,11 +64,7 @@ void call(char **tokens, stack_t **stack)
  */
 void is_valid(char *token)
 {
-	int num = 0, idx;
-
-	for (idx = 0; token[idx]; idx++)
-	{
-		if (atoi(token[idx]) )
+	int num = 0;
 
 	if (!token || (num == 0 && num != token[0] - '0'))
 	{
