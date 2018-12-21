@@ -25,23 +25,15 @@ op_func_2.c |    -     |  command implementations
 ./monty [BYTE_CODE_FILE]
 
 #### A bytecode file (file1) containing the following:
-push 1
-.br
-push 2
-.br
-push 3
-.br
-pall
-.br
-will produce the following:
-.br
-./monty file1
-.br
-3
-.br
-2
-.br
-1
+* push 1
+* push 2
+* push 3
+* pall
+* will produce the following:
+* ./monty file1
+* 3
+* 2
+* 1
 
 #### Authors/Collaborators
 `Stefan Silverio & Martin Smith`
