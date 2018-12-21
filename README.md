@@ -29,7 +29,7 @@ op_func_2.c |    -     |  command implementations
 * push 2
 * push 3
 * pall
-* will produce the following:
+##### will produce the following:
 * ./monty file1
 * 3
 * 2
