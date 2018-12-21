@@ -96,29 +96,28 @@ void _rotl(stack_t **stack, unsigned int n)
 	h->next = NULL;
 }
 
-
+/**
+ * _rotr - rotate a linked list to the right
+ * @stack: ptr to top of stack
+ * @n: line number
+ */
 void _rotr(stack_t **stack, unsigned int n)
 {
-
-	(void) stack;
-	(void) n;
-/*	int store_start = 0, store_end = 0;
+	stack_t *h = NULL, *t = NULL;
 
 	(void) n;
 
-	if (!stack || !(*stack))
+	if (!stack || !(*stack) || !(*stack)->next)
 		return;
 
-	store_start = (*stack)->n;
-	while ((*stack)->next)
-	{
-		(*stack) = (*stack)->next;
-		if ((*stack)->next == NULL)
-		{
-			store_end = (*stack)->n;
-			(*stack)->n = store_start;
-			return;
-		}
+	t = h = *stack;
+	 /* save address of second node */
+	while (h->next)
+		h = h->next;
 
-		} */
+	h->prev->next = NULL;
+	h->next = t;
+	h->prev = NULL;
+	t->prev = h;
+	*stack = h;
 }
