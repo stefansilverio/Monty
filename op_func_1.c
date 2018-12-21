@@ -80,7 +80,7 @@ void _rotl(stack_t **stack, unsigned int n)
 
 	(void) n;
 
-	if (!stack || !(*stack))
+	if (!stack || !(*stack) || !(*stack)->next)
 		return;
 
 	h = *stack;
