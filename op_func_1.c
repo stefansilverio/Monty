@@ -76,37 +76,32 @@ void _pstr(stack_t **stack, unsigned int n)
  */
 void _rotl(stack_t **stack, unsigned int n)
 {
-	int store_start = 0, store_end = 0;
+	stack_t *h, *t;
+
 	(void) n;
 
 	if (!stack || !(*stack))
 		return;
-
-	store_start = (*stack)->n; /* store first node data */
-
-	while ((*stack)->next)
+	h = *stack;
+	t = h->next;
+	t->prev = NULL;
+	*stack = t;
+	while (t->next)
 	{
-		(*stack) = (*stack)->next;
-		if ((*stack)->next == NULL)
-		{
-			store_end = (*stack)->n; /* store second node data */
-			(*stack)->n = store_start;
-
-			while ((*stack)->prev)
-			{
-				(*stack) = (*stack)->prev;
-			}
-
-			(*stack)->n = store_end;
-			return;
-		}
-
+		t = t->next;
 	}
+	t->next = h;
+	h->prev = NULL;
+	h->next = NULL;
 }
+
 
 void _rotr(stack_t **stack, unsigned int n)
 {
-	int store_start = 0, store_end = 0;
+
+	(void) stack;
+	(void) n;
+/*	int store_start = 0, store_end = 0;
 
 	(void) n;
 
@@ -124,5 +119,5 @@ void _rotr(stack_t **stack, unsigned int n)
 			return;
 		}
 
-	}
+		} */
 }
