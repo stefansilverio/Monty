@@ -76,12 +76,13 @@ void _pstr(stack_t **stack, unsigned int n)
  */
 void _rotl(stack_t **stack, unsigned int n)
 {
-	stack_t *h, *t;
+	stack_t *h = NULL, *t = NULL;
 
 	(void) n;
 
 	if (!stack || !(*stack))
 		return;
+
 	h = *stack;
 	t = h->next;
 	t->prev = NULL;
@@ -91,7 +92,7 @@ void _rotl(stack_t **stack, unsigned int n)
 		t = t->next;
 	}
 	t->next = h;
-	h->prev = NULL;
+	h->prev = t;
 	h->next = NULL;
 }
 
