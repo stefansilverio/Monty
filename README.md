@@ -1,7 +1,7 @@
 # 0x18. C - Stacks, Queues - LIFO, FIFO
 ## Description
 
-In this project, we created a simple create an interpreter for Monty ByteCodes. The interpreter reads a bytecode file and executes the bytecode commands.
+In this project, we created a simple interpreter for Monty ByteCodes. The interpreter reads a bytecode file and executes the bytecode commands.
 
 **Entry Functions**
 
