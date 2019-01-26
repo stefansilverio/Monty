@@ -15,9 +15,6 @@ File | Function	| Description
 -----|-----|----
 op_call.c | call the correct function | searches an array of structs and calls the appropriate function using a function pointer
 tokenize.c | tokenize | parse the line from getline() into tokens
-op_func_0.c |    -     |  command implementations
-op_func_1.c |    -     |  command implementations
-op_func_2.c |    -     |  command implementations
 
 ## Examples
 
